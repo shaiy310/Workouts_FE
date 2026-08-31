@@ -1,5 +1,5 @@
 window.appState = window.appState || {
-    currentDay: 1,
+    currentDay: new Date().getDay() + 1 || 1,
     routine: null,
     weekOverviewTable: null,
     workoutDetailsContainer: null,

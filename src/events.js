@@ -12,7 +12,7 @@ $(document).ready(function () {
 
     appState.workoutDetailsContainer = $('#workoutDetails');
     appState.workoutTable = appState.workoutDetailsContainer.find('tbody');
-    renderWorkoutDetails(1);
+    renderWorkoutDetails(window.appState.currentDay);
 
     $(`.tab-btn[data-day="${window.currentDay}"]`).addClass('active').attr('aria-selected', 'true');
 });
