@@ -99,14 +99,14 @@ const workouts = {
         sets: [[
             {
                 name: 'Single-Arm Dumbbell Row',
-                sets: 3,
+                sets: 4,
                 reps: 10,
                 rest: 90,
                 currentWeight: 11.5
             }],
         [{
             name: 'Bent-Over Barbell Row',
-            sets: 4,
+            sets: 3,
             reps: 8,
             rest: 0,
             currentWeight: 17.5
@@ -266,15 +266,17 @@ exercises = {
     'Barbell Flat Bench Press': {
         equipment: Equipment.BARBELL,
         weight: 13,
-        images: []
+        images: ['/Imgs/Barbell Flat Bench Press.gif']
     },
     'Dumbbell Bench Press': {
         equipment: Equipment.DUMBBELL,
-        weight: 9.75
+        weight: 9.75,
+        images: ['/Imgs/Dumbbell Bench Press.gif']
     },
     'Close-Grip Barbell Bench Press': {
         equipment: Equipment.BARBELL,
-        weight: 13
+        weight: 13,
+        images: ['/Imgs/Close-Grip Barbell Bench Press.gif']
     },
     'Dumbbell Chest Flyes': {
         equipment: Equipment.DUMBBELL,
@@ -282,39 +284,43 @@ exercises = {
     },
     'Lying Triceps Skullcrushers': {
         equipment: Equipment.DUMBBELL,
-        weight: 6.75
+        weight: 6.75,
+        images: ['/Imgs/Lying Triceps Skullcrushers.gif']
     },
     'Bench Dips': {
         equipment: Equipment.BODYWEIGHT,
-        weight: 0
+        weight: 0,
+        images: ['/Imgs/Bench Dips.gif']
     },
     'Bent-Over Barbell Row': {
         equipment: Equipment.BARBELL,
-        weight: 18
+        weight: 18,
+        images: ['/Imgs/Bent-Over Barbell Row.gif']
     },
     'Single-Arm Dumbbell Row': {
         equipment: Equipment.DUMBBELL,
-        weight: 15
+        weight: 15,
+        images: ['/Imgs/Single-Arm Dumbbell Row.gif']
     },
     'Standing Barbell Bicep Curls': {
         equipment: Equipment.BARBELL,
         weight: 18,
         images: ['/Imgs/Standing Barbell Bicep Curls.gif']
     },
-
     'Seated Dumbbell Bicep Curls': {
         equipment: Equipment.DUMBBELL,
         weight: 9,
-        images: ['/Imgs/Seated Dumbbell Bicep Curls.webp']
+        images: ['/Imgs/Seated Dumbbell Bicep Curls.gif']
     },
     'Chest-Supported Dumbbell Row': {
         equipment: Equipment.DUMBBELL,
         weight: 15,
-        images: ['/Imgs/Chest-Supported Dumbbell Row.webp']
+        images: ['/Imgs/Chest-Supported Dumbbell Row.gif']
     },
     'Dumbbell Reverse Flyes': {
         equipment: Equipment.DUMBBELL,
-        weight: 6.75
+        weight: 6.75,
+        images: ['/Imgs/Dumbbell Reverse Flyes.gif']
     },
     'Overhead Dumbbell Extension': {
         equipment: Equipment.DUMBBELL,
