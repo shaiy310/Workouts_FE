@@ -1,0 +1,26 @@
+.rest-cell {
+    white-space: nowrap;
+}
+
+.rest-timer-value {
+    display: inline-block;
+    min-width: 2ch;
+    font-weight: 700;
+    text-align: right;
+}
+
+.rest-timer-btn {
+    margin-left: 6px;
+    padding: 4px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: #fff;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.rest-timer-btn:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}

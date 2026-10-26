@@ -1,0 +1,40 @@
+.exercise-name-cell {
+    position: relative;
+}
+
+.exercise-name {
+    display: inline-block;
+    position: relative;
+    cursor: help;
+}
+
+.exercise-image-tooltip {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 8px);
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    padding: 8px;
+    border-radius: 8px;
+    background: rgba(17, 24, 39, 0.92);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    z-index: 10;
+}
+
+.exercise-name-cell:hover .exercise-image-tooltip,
+.exercise-name-cell:focus-within .exercise-image-tooltip {
+    opacity: 1;
+}
+
+.exercise-image-tooltip img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: #fff;
+}
