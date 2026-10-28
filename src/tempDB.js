@@ -562,16 +562,16 @@ export const workouts = {
                     name: 'Bent-Over Barbell Row',
                     sets: 4,
                     reps: 8,
-                    rest: 90
-                }
-            ],
-            [
+                    rest: 0
+                },
                 {
                     name: 'Single-Arm Dumbbell Row',
                     sets: 3,
                     reps: 10,
-                    rest: 0
-                },
+                    rest: 90
+                }
+            ],
+            [
                 {
                     name: 'Dumbbell Reverse Flyes',
                     sets: 3,

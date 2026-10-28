@@ -11,13 +11,14 @@ npm install
 npm start
 ```
 
-The app opens at [http://localhost:3000](http://localhost:3000).
+The app opens at [http://localhost:5173](http://localhost:5173).
 
 ## Available scripts
 
-- `npm start` - run the development server.
-- `npm test -- --watchAll=false` - run tests once.
-- `npm run build` - create an optimized production build in `build/`.
+- `npm start` - run the Vite development server.
+- `npm test` - run tests once with Vitest.
+- `npm run build` - create an optimized production build in `dist/`.
+- `npm run preview` - preview the production build locally.
 
 ## Project data
 
