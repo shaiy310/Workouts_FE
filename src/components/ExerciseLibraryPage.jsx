@@ -1,18 +1,18 @@
 import React from 'react';
-import { exercises } from '../tempDB';
 import { getExerciseImages } from '../utils';
 import './ExerciseLibraryPage.css';
 
-const exerciseList = Object.entries(exercises)
+const sortExerciseList = (exercises) => { return Object.entries(exercises)
     .map(([name, details]) => ({ name, ...details }))
-    .sort((first, second) => first.name.localeCompare(second.name));
+    .sort((first, second) => first.name.localeCompare(second.name))};
 
-function ExerciseLibraryPage({ weights, events }) {
-    const [selectedExerciseName, setSelectedExerciseName] = React.useState(exerciseList[0]?.name);
+function ExerciseLibraryPage({exercises, weights, events }) {
+    const sortedExercises = sortExerciseList(exercises);
+    const [selectedExerciseName, setSelectedExerciseName] = React.useState(sortedExercises[0]?.name);
     const [isWeightHistoryOpen, setIsWeightHistoryOpen] = React.useState(false);
-    const selectedExercise = exerciseList.find((exercise) => exercise.name === selectedExerciseName);
+    const selectedExercise = sortedExercises.find((exercise) => exercise.name === selectedExerciseName);
     const currentWeight = weights[selectedExerciseName] ?? selectedExercise?.weight;
-    const images = selectedExercise ? getExerciseImages(selectedExercise.name) : [];
+    const images = selectedExercise ? getExerciseImages(exercises, selectedExercise.name) : [];
     const weightHistory = events
         .filter((event) => event.type === 'weight' && event.exerciseName === selectedExerciseName)
         .sort((first, second) => second.date.localeCompare(first.date) || second.id.localeCompare(first.id));
@@ -39,10 +39,10 @@ function ExerciseLibraryPage({ weights, events }) {
                 <aside className="exercise-directory" aria-label="Exercises">
                     <div className="exercise-directory-heading">
                         <h3>All exercises</h3>
-                        <span>{exerciseList.length}</span>
+                        <span>{sortedExercises.length}</span>
                     </div>
                     <ul>
-                        {exerciseList.map((exercise) => (
+                        {sortedExercises.map((exercise) => (
                             <li key={exercise.name}>
                                 <button
                                     type="button"
