@@ -1,13 +1,13 @@
 import React from 'react';
 
-import './WorkoutDetails.css';
+import './WorkoutPage.css';
 
 import WorkoutTable from './WorkoutTable';
 
 import { getLocalDateKey } from '/src/utils';
 
 
-function WorkoutDetails({ exercises, workouts, weights, events, onWorkoutComplete, onWeightChange }) {
+function WorkoutPage({ exercises, workouts, weights, events, onWorkoutComplete, onWeightChange }) {
     const [day, setCurrentDay] = React.useState(new Date().getDay() + 1 || 1);
 
     const workout = (workouts && workouts[day]) || {};
@@ -64,4 +64,4 @@ function WorkoutDetails({ exercises, workouts, weights, events, onWorkoutComplet
     );
 }
 
-export default WorkoutDetails;
+export default WorkoutPage;
