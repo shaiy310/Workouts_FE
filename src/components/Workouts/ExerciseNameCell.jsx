@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { getExerciseImages } from '../utils';
 import './ExerciseNameCell.css';
+
+import { getExerciseImages } from '/src/utils';
 
 function ExerciseNameCell({ exercises, exerciseName }) {
     const exerciseImages = getExerciseImages(exercises, exerciseName);

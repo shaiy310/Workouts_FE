@@ -1,6 +1,9 @@
 import React from 'react';
-import { getWeightTooltip, weightOptions } from '../utils';
+
 import './ExerciseWeightCell.css';
+
+import { weightOptions } from '/src/constants';
+import { getWeightTooltip } from '/src/utils';
 
 function ExerciseWeightCell({ exerciseName, equipment, index, i, weight, onWeightChange }) {
     const tooltipText = getWeightTooltip(equipment, weight);

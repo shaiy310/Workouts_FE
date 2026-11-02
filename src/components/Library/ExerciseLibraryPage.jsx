@@ -1,5 +1,5 @@
 import React from 'react';
-import { getExerciseImages } from '../utils';
+import { getExerciseImages } from '/src/utils';
 import './ExerciseLibraryPage.css';
 
 const sortExerciseList = (exercises) => { return Object.entries(exercises)

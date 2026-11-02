@@ -1,10 +1,13 @@
 import React from 'react';
 import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
+
 import './App.css';
-import WorkoutDetails from './components/WorkoutDetails';
-import CalendarPage from './components/CalendarPage';
-import ExerciseLibraryPage from './components/ExerciseLibraryPage';
-import {workouts_new as workoutData, exercises as tempExercises} from './tempDB';
+
+import WorkoutDetails from './components/Workouts/WorkoutDetails';
+import CalendarPage from './components/Calander/CalendarPage';
+import ExerciseLibraryPage from './components/Library/ExerciseLibraryPage';
+
+import {workouts as workoutData, exercises as tempExercises} from './tempDB';
 import { getLocalDateKey } from './utils';
 import { getAllExercises } from './services/api';
 

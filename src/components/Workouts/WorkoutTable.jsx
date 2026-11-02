@@ -1,9 +1,12 @@
 import React from 'react';
+
+import './WorkoutTable.css';
+
 import ExerciseNameCell from './ExerciseNameCell';
 import ExerciseWeightCell from './ExerciseWeightCell';
 import EndSetRow from './EndSetRow';
-import { inferEquipment } from '../utils';
-import './WorkoutTable.css';
+
+import { inferEquipment } from '/src/utils';
 
 function WorkoutTable({ exercises, day, workout, weights, onWeightChange }) {
 

@@ -1,10 +1,10 @@
 import React from 'react';
+
 import './EndSetRow.css';
 
 function EndSetRow({ setNumTotal,restTime, rowColor }) {
     const [setNum, setSetNum] = React.useState(setNumTotal || 3);
     const [rest, setRest] = React.useState(Number(restTime) || 60);
-    // const [btnText, setBtnText] = React.useState('Start Timer');
     const timerId = React.useRef(null);
 
     React.useEffect(() => {

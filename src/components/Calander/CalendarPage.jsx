@@ -1,5 +1,5 @@
 import React from 'react';
-import { getLocalDateKey } from '../utils';
+import { getLocalDateKey } from '/src/utils';
 import './CalendarPage.css';
 
 const weekdayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];

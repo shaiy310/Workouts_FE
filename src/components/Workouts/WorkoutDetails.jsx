@@ -1,7 +1,10 @@
 import React from 'react';
-import WorkoutTable from './WorkoutTable';
-import { getLocalDateKey } from '../utils';
+
 import './WorkoutDetails.css';
+
+import WorkoutTable from './WorkoutTable';
+
+import { getLocalDateKey } from '/src/utils';
 
 
 function WorkoutDetails({ exercises, workouts, weights, events, onWorkoutComplete, onWeightChange }) {
