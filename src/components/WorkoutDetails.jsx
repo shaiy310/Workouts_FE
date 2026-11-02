@@ -5,7 +5,7 @@ import './WorkoutDetails.css';
 
 
 function WorkoutDetails({ exercises, workouts, weights, events, onWorkoutComplete, onWeightChange }) {
-    const [day, setCurrentDay] = React.useState(1);
+    const [day, setCurrentDay] = React.useState(new Date().getDay() + 1 || 1);
 
     const workout = (workouts && workouts[day]) || {};
     const today = getLocalDateKey();

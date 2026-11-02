@@ -1,9 +1,10 @@
 import React from 'react';
-import './ExerciseRestIntervalCell.css';
+import './EndSetRow.css';
 
-function ExerciseRestIntervalCell({ exercise }) {
-    const [rest, setRest] = React.useState(Number(exercise.rest) || 0);
-    const [btnText, setBtnText] = React.useState('Start');
+function EndSetRow({ setNumTotal,restTime, rowColor }) {
+    const [setNum, setSetNum] = React.useState(setNumTotal || 3);
+    const [rest, setRest] = React.useState(Number(restTime) || 60);
+    // const [btnText, setBtnText] = React.useState('Start Timer');
     const timerId = React.useRef(null);
 
     React.useEffect(() => {
@@ -19,16 +20,15 @@ function ExerciseRestIntervalCell({ exercise }) {
         if (timerId.current) return;
 
         let remaining = rest;
-        setBtnText('Running...');
+        setSetNum((prevSetNum) => prevSetNum > 0 ? prevSetNum - 1 : setNumTotal);
         
         timerId.current = setInterval(function () {
             remaining -= 1;
             setRest(remaining);
-
+            
             if (remaining <= 0) {
                 clearInterval(timerId.current);
                 timerId.current = null;
-                setBtnText('Start');
                 setRest(rest);
                 buzzRestTimer();
             }
@@ -36,12 +36,14 @@ function ExerciseRestIntervalCell({ exercise }) {
     }
 
     return (
-        <td className="rest-cell">
-            <span className="rest-timer-value">{rest}</span> seconds
-            {rest > 0 && <button className="rest-timer-btn" type="button" onClick={handleStartRest}>
-                {btnText}
-            </button>}
-        </td>
+        <tr className="rest-row" style={{ backgroundColor: rowColor }}>
+            <td colSpan={5} className="rest-cell">
+                {rest > 0 && <button className="rest-timer-btn" type="button" onClick={handleStartRest}>
+                    {rest} seconds
+                </button>}
+                <span className="set-num-value">{setNum} sets remaining </span>
+            </td>
+        </tr>
     );
 }
 
@@ -74,4 +76,4 @@ function buzzRestTimer() {
 }
 
 
-export default ExerciseRestIntervalCell;
+export default EndSetRow;

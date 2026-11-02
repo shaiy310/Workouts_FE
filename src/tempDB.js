@@ -465,7 +465,7 @@ const workouts_v2 = {
     }
 };
 
-export const workouts = {
+const workouts_v3 = {
     1: {
         title: 'Chest & Biceps (P1 Focus)',
         duration: 40,
@@ -652,12 +652,143 @@ export const workouts = {
     }
 };
 
+export const workouts = {
+    1: {
+        title: 'Chest & Biceps (P1 Focus)',
+        duration: 40,
+        emphasis: 'Chest Mass & Bicep Peak (Pure Dumbbell & Barbell Separation)',
+        sets: [
+            {
+                num: 4,
+                rest: 40,
+                exercises: [
+                    {'name': 'Barbell Flat Bench Press', 'reps': 8},
+                ],
+            },
+            {
+                num: 3,
+                rest: 50,
+                exercises: [
+                    {'name': 'Flat Dumbbell Bench Press', 'reps': 10},
+                    {'name': 'Seated Dumbbell Bicep Curls', 'reps': 10},
+                ],
+            },
+            {
+                num: 3,
+                rest: 60,
+                exercises: [
+                    {'name': 'Dumbbell Chest Flyes', 'reps': 12},
+                    {'name': 'Dumbbell Hammer Curls', 'reps': 10},
+                ],
+            }
+        ],
+    },
+    2: {
+        title: 'Shoulders & Triceps (P2 Focus)',
+        duration: 40,
+        emphasis: 'Shoulder Width & Triceps Density',
+        sets: [
+            {
+                num: 4,
+                rest: 90,
+                exercises: [
+                    {'name': 'Standing Barbell Overhead Press', 'reps': 8},
+                ],
+            },
+            {
+                num: 3,
+                rest: 75,
+                exercises: [
+                    {'name': 'Seated Dumbbell Shoulder Press', 'reps': 10},
+                    {'name': 'Dumbbell Lateral Raises', 'reps': 12},
+                ],
+            },
+            {
+                num: 3,
+                rest: 60,
+                exercises: [
+                    {'name': 'Lying Triceps Skullcrushers', 'reps': 10},
+                    {'name': 'Bench Dips', 'reps': 12},
+                ],
+            },
+        ]
+    },
+    3: {
+        title: 'Back & Abs (P3 Focus)',
+        duration: 40,
+        emphasis: 'Lat Width, Mid-Back Thickness & Core Strength',
+        sets: [
+            {
+                num: 4,
+                rest: 90,
+                exercises: [
+                    {'name': 'Bent-Over Barbell Row', 'reps': 8},
+                    {'name': 'Single-Arm Dumbbell Row', 'reps': 10},
+                ]
+            },
+            {
+                num: 3,
+                rest: 75,
+                exercises: [
+                    {'name': 'Dumbbell Reverse Flyes', 'reps': 15},
+                    {'name': 'Weighted Flat Bench Crunches', 'reps': 12},
+                ]
+            },
+            {
+                num: 3,
+                rest: 60,
+                exercises: [
+                    {'name': 'Lying Bench Reverse Crunches', 'reps': 12},
+                    {'name': 'Weighted Flat Bench Crunches', 'reps': 12},
+                ]
+            }
+        ]
+    },
+    4: {
+        title: 'Rest / Active Recovery',
+        duration: 30,
+        notes: '3–5K walk or light run for leg endurance and fat loss, plus mobility work.',
+        sets: []
+    },
+    5: {
+        title: 'Arms Hypertrophy & Chest Touch-up',
+        duration: 40,
+        emphasis: 'P1 Arm Specialization & Finisher Volume',
+        sets: [
+            {
+                num: 3,
+                rest: 75,
+                exercises: [
+                    {'name': 'Close-Grip Barbell Bench Press', 'reps': 8},
+                    {'name': 'Standing Barbell Bicep Curls', 'reps': 8},
+                ]
+            },
+            {
+                num: 3,
+                rest: 60,
+                exercises: [
+                    {'name': 'Concentration Curls', 'reps': 10},
+                    {'name': 'Dumbbell Skullcrushers', 'reps': 10},
+                ]
+            },
+            {
+                num: 3,
+                rest: 60,
+                exercises: [
+                    {'name': 'Dumbbell Hammer Curls', 'reps': 10},
+                    {'name': 'Overhead Dumbbell Extension', 'reps': 10},
+                ]
+            }
+        ]
+    }
+};
+
 // Equipment enum (use lowercase values to match `weightOptions` and inferEquipment())
 export const Equipment = Object.freeze({
-    BARBELL: 'barbell',
-    DUMBBELL: 'dumbbell',
-    MACHINE: 'machine',
-    BODYWEIGHT: 'bodyweight'
+    BARBELL: 'BARBELL',
+    DUMBBELL: 'DUMBBELL',
+    MACHINE: 'MACHINE',
+    BODYWEIGHT: 'BODYWEIGHT'
 });
 
 export const exercises = {

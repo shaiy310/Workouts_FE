@@ -1,4 +1,4 @@
-import { Equipment, weightVariations, exercises } from './tempDB';
+import { Equipment, weightVariations } from './tempDB';
 
 // Weight options by equipment type (used by loader.js)
 export const weightOptions = {
@@ -29,7 +29,7 @@ export function getLocalDateKey(date = new Date()) {
     return `${year}-${month}-${day}`;
 }
 
-export function getExerciseImages(exerciseName) {
+export function getExerciseImages(exercises, exerciseName) {
     const images = exercises[exerciseName]?.images;
-    return Array.isArray(images) ? images.filter(Boolean) : [];
+    return Array.isArray(images) ? images.filter(Boolean) : (images ? [images] : []);
 }

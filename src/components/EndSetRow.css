@@ -1,12 +1,18 @@
 .rest-cell {
     white-space: nowrap;
+    text-align: center;
 }
 
-.rest-timer-value {
+.rest-cell > * {
+  /* display: inline-block; */
+  vertical-align: middle;
+}
+
+.set-num-value {
     display: inline-block;
     min-width: 2ch;
     font-weight: 700;
-    text-align: right;
+    padding: 0 15px;
 }
 
 .rest-timer-btn {
