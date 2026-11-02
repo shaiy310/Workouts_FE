@@ -6,6 +6,7 @@ import './App.css';
 import WorkoutDetails from './components/Workouts/WorkoutDetails';
 import CalendarPage from './components/Calander/CalendarPage';
 import ExerciseLibraryPage from './components/Library/ExerciseLibraryPage';
+import LoginPage from './components/Login/LoginPage';
 
 import {workouts as workoutData, exercises as tempExercises} from './tempDB';
 import { getLocalDateKey } from './utils';
@@ -113,6 +114,11 @@ function App() {
     });
   }
 
+  function recordLogin() {
+    // Placeholder for login functionality
+    console.log('Login functionality is not implemented yet.');
+  }
+
   return (
     <div className="App">
       <header className="app-header">
@@ -121,6 +127,9 @@ function App() {
           <h1>Workout Planner</h1>
         </div>
         <nav className="app-navigation" aria-label="Main navigation">
+          <NavLink to="/login">
+            Login
+          </NavLink>
           <NavLink to="/" end>
             Workouts
           </NavLink>
@@ -151,6 +160,7 @@ function App() {
           />
           <Route path="/calendar" element={<CalendarPage events={events} />} />
           <Route path="/exercises" element={<ExerciseLibraryPage exercises={exercises} weights={weights} events={events} />} />
+          <Route path="/login" element={<LoginPage onLogin={recordLogin} />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
