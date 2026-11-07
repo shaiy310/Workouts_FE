@@ -27,12 +27,7 @@ export function useWorkouts(storageKey = 'workout-planner-workouts', initialValu
 
   const addWorkout = React.useCallback((workout) => {
     setWorkouts((currentWorkouts) => {
-      if (currentWorkouts[workout.title] !== undefined) {
-        currentWorkouts[updatedWorkoutIndex] = workout;
-        return currentWorkouts;
-      }
-      
-      return {...currentWorkouts, [workout.title] : workout};
+      return {...currentWorkouts, [workout.name] : workout};
     });
   }, []);
 

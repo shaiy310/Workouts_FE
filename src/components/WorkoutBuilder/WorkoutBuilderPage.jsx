@@ -5,6 +5,8 @@ import "./WorkoutBuilderPage.css";
 import { sortObjectsByName } from "/src/utils";
 import { Options } from "../Shared/Options";
 import ObjectDirectoryList from "../Shared/ObjectDirectoryList";
+import { exportAsJsonFile } from "../../utils";
+import PageHeader from "../Shared/PageHeader";
 
 const calculateEstimatedDuration = (sets) => {
   return sets.reduce((acc, set) => {
@@ -18,30 +20,31 @@ function WorkoutBuilderPage({ workouts, exercises, addWorkout }) {
   const sortedWorkouts = sortObjectsByName(workouts);
   const [workout, setWorkout] = React.useState(sortedWorkouts[0] ?? undefined);
 
+  function exportWorkouts() {
+    exportAsJsonFile(workouts, 'workouts.json');
+  }
+
   return (
     <main className="workout-builder-page">
-      <header className="workout-builder-header">
-        <div className="workout-builder-header__content">
-          <p className="workout-builder-eyebrow">Workout Builder</p>
-          <h1>Workout Library</h1>
-        </div>
-
-        <div className="workout-builder-header__actions">
-          <button
-            type="button"
-            className="workout-builder-button workout-builder-button--secondary"
-            onClick={() => setWorkout({ name: '', emphasis: '', sets: [] })}
-          >
-            New
-          </button>
-          <button
-            type="button"
-            className="workout-builder-button workout-builder-button--primary"
-          >
-            Save
-          </button>
-        </div>
-      </header>
+      <PageHeader
+        title="Workout Library"
+        eyebrow="Workout Builder"
+        buttons={[
+          {
+            text: 'New',
+            onClick: () => setWorkout({ name: '', emphasis: '', sets: [] }),
+          },
+          {
+            text: 'Save',
+            isPrimary: true,
+            onClick: () => addWorkout(workout),
+          },
+          {
+            text: 'Export All',
+            onClick: exportWorkouts,
+          },
+        ]}
+      />
 
       <section className="workout-builder-layout">
         <ObjectDirectoryList

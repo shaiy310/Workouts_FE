@@ -2,37 +2,6 @@
     color: #24364b;
 }
 
-.exercise-library-heading {
-    margin-bottom: 20px;
-    justify-content: space-between;
-    display: flex;
-}
-
-.exercise-library-heading button {    
-    flex: 0 0 auto;
-    padding: 6px 12px;
-    border: 0;
-    border-radius: 8px;
-    background: var(--primary-color);
-    color: #fff;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.exercise-library-heading h2 {
-    margin: 2px 0 4px;
-    border: 0;
-    padding: 0;
-    color: var(--primary-color);
-    font-size: 25px;
-}
-
-.exercise-library-heading > p:last-child {
-    margin: 0;
-    color: #718096;
-}
-
 .exercise-library-eyebrow,
 .exercise-detail-eyebrow {
     margin: 0;

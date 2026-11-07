@@ -1,9 +1,28 @@
 import { Equipment, weightVariations } from './constants';
 
+export function exportAsJsonFile(data, filename='data.json') {
+    const blob = new Blob([JSON.stringify(data, null, 4)], {
+        type: 'application/json',
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    link.click();
+    URL.revokeObjectURL(url);
+}
+
 export function sortObjectsByName(exercises) { 
     return Object.entries(exercises)
         .map(([name, details]) => ({ name, ...details }))
         .sort((first, second) => first.name.localeCompare(second.name))
+}
+
+export function getLocalDateKey(date = new Date()) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
 }
 
 export function inferEquipment(name) {
@@ -18,13 +37,6 @@ export function inferEquipment(name) {
 export function getWeightTooltip(equipment, weightValue) {
     const variation = weightVariations[equipment]?.[weightValue] || 'BW';
     return `${equipment}: ${variation}`;
-}
-
-export function getLocalDateKey(date = new Date()) {
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
 }
 
 export function getExerciseImages(exercises, exerciseName) {

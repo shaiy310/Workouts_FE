@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { useWorkoutEvents } from '../workouts/useWorkoutEvents';
+import { useWorkouts } from '../workouts/useWorkouts';
 import { useWeightTracking } from '../weights/useWeightTracking';
 import { exercises as tempExercises, workouts as tempWorkouts } from '../../tempDB';
-import { useWorkouts } from '../workouts/useWorkouts';
 
 const AppStateContext = React.createContext(null);
 
@@ -24,16 +24,15 @@ export function AppStateProvider({ children }) {
     setExercises(tempExercises);
   }, []);
 
-  React.useEffect(() => {
-    // getAllExercises().then((res) => {
-    //   let exerciseMapping = {}
-    //   res.data.forEach(exercise => {
-    //     exerciseMapping[exercise.name] = exercise
-    //   });
-    //   setExercises(exerciseMapping);
-    // });
-    setWorkouts(tempWorkouts);
-  }, []);
+  // React.useEffect(() => {
+  // getAllExercises().then((res) => {
+  //   let exerciseMapping = {}
+  //   res.data.forEach(exercise => {
+  //     exerciseMapping[exercise.name] = exercise
+  //   });
+  //   setExercises(exerciseMapping);
+  // });  
+  // }, []);
 
   const value = React.useMemo(
     () => ({
@@ -45,7 +44,7 @@ export function AppStateProvider({ children }) {
       recordWorkout,
       recordWeightChange,
     }),
-    [events, workouts, exercises, recordWorkout, recordWeightChange, weights]
+    [exercises, workouts, events, weights, addWorkout, recordWorkout, recordWeightChange]
   );
 
   return <AppStateContext.Provider value={value}>{children}</AppStateContext.Provider>;

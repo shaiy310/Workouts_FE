@@ -10,5 +10,5 @@ export function WorkoutBuilderFeature() {
     return <p>Loading...</p>;
   }
 
-  return <WorkoutBuilderPage workouts={workouts} exercises={exercises} />;
+  return <WorkoutBuilderPage workouts={workouts} exercises={exercises} addWorkout={addWorkout} />;
 }

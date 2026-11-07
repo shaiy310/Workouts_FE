@@ -2,6 +2,8 @@ import React from 'react';
 import { sortObjectsByName, getExerciseImages } from '/src/utils';
 import ObjectDirectoryList from '../Shared/ObjectDirectoryList';
 import './ExerciseLibraryPage.css';
+import { exportAsJsonFile } from '../../utils';
+import PageHeader from '../Shared/PageHeader';
 
 function ExerciseLibraryPage({ exercises, weights, events }) {
     const sortedExercises = sortObjectsByName(exercises);
@@ -35,27 +37,23 @@ function ExerciseLibraryPage({ exercises, weights, events }) {
             };
         });
 
-        const blob = new Blob([JSON.stringify(data, null, 4)], {
-            type: 'application/json',
-        });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = 'exercises.json';
-        link.click();
-        URL.revokeObjectURL(url);
+        exportAsJsonFile(data);
     }
 
     return (
         <section className="exercise-library" aria-labelledby="exercise-library-title">
-            <header className="exercise-library-heading">
-                <div className="exercise-library-heading-text">
-                    <p className="exercise-library-eyebrow">MOVEMENT REFERENCE</p>
-                    <h2 id="exercise-library-title">Exercise library</h2>
-                    <p>Browse your exercises and view their equipment, working weight, and movement reference.</p>
-                </div>
-                <button onClick={handleExport}>Export</button>
-            </header>
+            <PageHeader
+                title="Exercise library"
+                eyebrow="MOVEMENT REFERENCE"
+                description="Browse your exercises and view their equipment, working weight, and movement reference."
+                buttons={[
+                    {
+                        text: "Export",
+                        isPrimary: true,
+                        onClick: handleExport,
+                    }
+                ]}
+            />
             <div className="exercise-library-layout">
                 <ObjectDirectoryList
                     objects={sortedExercises}
