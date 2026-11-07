@@ -663,7 +663,7 @@ export const workoutByday = {
 }
 export const workouts = {
     'Chest & Biceps (P1 Focus)': {
-        title: 'Chest & Biceps (P1 Focus)',
+        name: 'Chest & Biceps (P1 Focus)',
         duration: 40,
         emphasis: 'Chest Mass & Bicep Peak (Pure Dumbbell & Barbell Separation)',
         sets: [
@@ -693,7 +693,7 @@ export const workouts = {
         ],
     },
     'Shoulders & Triceps (P2 Focus)': {
-        title: 'Shoulders & Triceps (P2 Focus)',
+        name: 'Shoulders & Triceps (P2 Focus)',
         duration: 40,
         emphasis: 'Shoulder Width & Triceps Density',
         sets: [
@@ -723,7 +723,7 @@ export const workouts = {
         ]
     },
     'Back & Abs (P3 Focus)': {
-        title: 'Back & Abs (P3 Focus)',
+        name: 'Back & Abs (P3 Focus)',
         duration: 40,
         emphasis: 'Lat Width, Mid-Back Thickness & Core Strength',
         sets: [
@@ -754,13 +754,13 @@ export const workouts = {
         ]
     },
     'Rest / Active Recovery': {
-        title: 'Rest / Active Recovery',
+        name: 'Rest / Active Recovery',
         duration: 30,
         notes: '3–5K walk or light run for leg endurance and fat loss, plus mobility work.',
         sets: []
     },
     'Arms Hypertrophy & Chest Touch-up': {
-        title: 'Arms Hypertrophy & Chest Touch-up',
+        name: 'Arms Hypertrophy & Chest Touch-up',
         duration: 40,
         emphasis: 'P1 Arm Specialization & Finisher Volume',
         sets: [
