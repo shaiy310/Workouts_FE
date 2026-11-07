@@ -30,6 +30,9 @@ function Menu() {
             <NavLink to="/" end onClick={() => setIsSidebarOpen(false)}>
               Workouts
             </NavLink>
+            <NavLink to="/builder" end onClick={() => setIsSidebarOpen(false)}>
+              Workout Builder
+            </NavLink>
             <NavLink to="/calendar" onClick={() => setIsSidebarOpen(false)}>
               Calendar
             </NavLink>

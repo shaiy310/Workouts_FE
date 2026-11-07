@@ -10,7 +10,7 @@
     padding: 20px 16px;
     transition: width 0.25s ease, min-width 0.25s ease, max-height 0.25s ease;
     overflow: hidden;
-    height: 100vh;
+    height: stretch;
 }
 
 .app-sidebar:not(.open) {
@@ -22,7 +22,6 @@
 .app-sidebar:not(.open) .app-navigation a {
     opacity: 0;
     visibility: hidden;
-    max-height: 0;
     pointer-events: none;
     overflow: hidden;
     margin: 0;
@@ -89,13 +88,11 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    max-height: 320px;
     overflow: hidden;
     transition: max-height 0.25s ease, opacity 0.2s ease;
 }
 
 .app-sidebar:not(.open) .app-navigation {
-    max-height: 0;
     opacity: 0;
     pointer-events: none;
 }
