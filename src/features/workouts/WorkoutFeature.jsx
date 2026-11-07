@@ -1,11 +1,11 @@
 import React from 'react';
 
 import WorkoutPage from '../../components/Workouts/WorkoutPage';
-import { workouts as workoutData } from '../../tempDB';
+import { workoutByday } from '../../tempDB';
 import { useAppState } from '../app/AppStateProvider';
 
 export function WorkoutFeature() {
-  const { exercises, weights, events, recordWorkout, recordWeightChange } = useAppState();
+  const { exercises, workouts, weights, events, recordWorkout, recordWeightChange } = useAppState();
 
   if (!exercises) {
     return <p>Loading...</p>;
@@ -14,7 +14,8 @@ export function WorkoutFeature() {
   return (
     <WorkoutPage
       exercises={exercises}
-      workouts={workoutData}
+      workouts={workouts}
+      workoutByday={workoutByday}
       weights={weights}
       events={events}
       onWorkoutComplete={recordWorkout}

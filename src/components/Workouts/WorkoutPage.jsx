@@ -7,10 +7,10 @@ import WorkoutTable from './WorkoutTable';
 import { getLocalDateKey } from '/src/utils';
 
 
-function WorkoutPage({ exercises, workouts, weights, events, onWorkoutComplete, onWeightChange }) {
+function WorkoutPage({ exercises, workouts, workoutByday, weights, events, onWorkoutComplete, onWeightChange }) {
     const [day, setCurrentDay] = React.useState(new Date().getDay() + 1 || 1);
 
-    const workout = (workouts && workouts[day]) || {};
+    const workout = (workouts && workouts[workoutByday[day]]) || {};
     const today = getLocalDateKey();
     const workoutAlreadyLogged = events.some(
         (event) => event.type === 'workout' && event.date === today && event.workoutDay === day
@@ -20,7 +20,7 @@ function WorkoutPage({ exercises, workouts, weights, events, onWorkoutComplete, 
         <div className="workoutDetails">
             <h2>Workout Details</h2>
             <div className="tabs" role="tablist" aria-label="Workout days">
-                {[1,2,3,4,5].map((dayTab) => {
+                {[1, 2, 3, 4, 5].map((dayTab) => {
                     return (
                         <button type="button"
                             key={`day${dayTab}`}

@@ -654,8 +654,15 @@ const workouts_v3 = {
     }
 };
 
+export const workoutByday = {
+    1: 'Chest & Biceps (P1 Focus)',
+    2: 'Shoulders & Triceps (P2 Focus)',
+    3: 'Back & Abs (P3 Focus)',
+    4: 'Rest / Active Recovery',
+    5: 'Arms Hypertrophy & Chest Touch-up',
+}
 export const workouts = {
-    1: {
+    'Chest & Biceps (P1 Focus)': {
         title: 'Chest & Biceps (P1 Focus)',
         duration: 40,
         emphasis: 'Chest Mass & Bicep Peak (Pure Dumbbell & Barbell Separation)',
@@ -685,7 +692,7 @@ export const workouts = {
             }
         ],
     },
-    2: {
+    'Shoulders & Triceps (P2 Focus)': {
         title: 'Shoulders & Triceps (P2 Focus)',
         duration: 40,
         emphasis: 'Shoulder Width & Triceps Density',
@@ -702,20 +709,20 @@ export const workouts = {
                 rest: 75,
                 exercises: [
                     {'name': 'Seated Dumbbell Shoulder Press', 'reps': 10},
-                    {'name': 'Dumbbell Lateral Raises', 'reps': 12},
+                    {'name': 'Lying Triceps Skullcrushers', 'reps': 10},
                 ],
             },
             {
                 num: 3,
                 rest: 60,
                 exercises: [
-                    {'name': 'Lying Triceps Skullcrushers', 'reps': 10},
+                    {'name': 'Dumbbell Lateral Raises', 'reps': 12},
                     {'name': 'Bench Dips', 'reps': 12},
                 ],
             },
         ]
     },
-    3: {
+    'Back & Abs (P3 Focus)': {
         title: 'Back & Abs (P3 Focus)',
         duration: 40,
         emphasis: 'Lat Width, Mid-Back Thickness & Core Strength',
@@ -746,13 +753,13 @@ export const workouts = {
             }
         ]
     },
-    4: {
+    'Rest / Active Recovery': {
         title: 'Rest / Active Recovery',
         duration: 30,
         notes: '3–5K walk or light run for leg endurance and fat loss, plus mobility work.',
         sets: []
     },
-    5: {
+    'Arms Hypertrophy & Chest Touch-up': {
         title: 'Arms Hypertrophy & Chest Touch-up',
         duration: 40,
         emphasis: 'P1 Arm Specialization & Finisher Volume',
