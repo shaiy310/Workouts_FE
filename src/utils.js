@@ -1,5 +1,11 @@
 import { Equipment, weightVariations } from './constants';
 
+export function sortObjectsByName(exercises) { 
+    return Object.entries(exercises)
+        .map(([name, details]) => ({ name, ...details }))
+        .sort((first, second) => first.name.localeCompare(second.name))
+}
+
 export function inferEquipment(name) {
     const n = String(name || '').toLowerCase();
     if (n.includes('dumbbell')) return Equipment.DUMBBELL;

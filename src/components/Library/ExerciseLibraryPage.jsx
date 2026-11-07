@@ -1,13 +1,10 @@
 import React from 'react';
-import { getExerciseImages } from '/src/utils';
+import { sortObjectsByName, getExerciseImages } from '/src/utils';
+import ObjectDirectoryList from '../Shared/ObjectDirectoryList';
 import './ExerciseLibraryPage.css';
 
-const sortExerciseList = (exercises) => { return Object.entries(exercises)
-    .map(([name, details]) => ({ name, ...details }))
-    .sort((first, second) => first.name.localeCompare(second.name))};
-
-function ExerciseLibraryPage({exercises, weights, events }) {
-    const sortedExercises = sortExerciseList(exercises);
+function ExerciseLibraryPage({ exercises, weights, events }) {
+    const sortedExercises = sortObjectsByName(exercises);
     const [selectedExerciseName, setSelectedExerciseName] = React.useState(sortedExercises[0]?.name);
     const [isWeightHistoryOpen, setIsWeightHistoryOpen] = React.useState(false);
     const selectedExercise = sortedExercises.find((exercise) => exercise.name === selectedExerciseName);
@@ -28,35 +25,45 @@ function ExerciseLibraryPage({exercises, weights, events }) {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [isWeightHistoryOpen]);
 
+    function handleExport() {
+        const data = {};
+
+        sortedExercises.forEach((exercise) => {
+            data[exercise.name] = {
+                ...exercise,
+                weight: weights[exercise.name] ?? exercise.weight,
+            };
+        });
+
+        const blob = new Blob([JSON.stringify(data, null, 4)], {
+            type: 'application/json',
+        });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'exercises.json';
+        link.click();
+        URL.revokeObjectURL(url);
+    }
+
     return (
         <section className="exercise-library" aria-labelledby="exercise-library-title">
             <header className="exercise-library-heading">
-                <p className="exercise-library-eyebrow">MOVEMENT REFERENCE</p>
-                <h2 id="exercise-library-title">Exercise library</h2>
-                <p>Browse your exercises and view their equipment, working weight, and movement reference.</p>
+                <div className="exercise-library-heading-text">
+                    <p className="exercise-library-eyebrow">MOVEMENT REFERENCE</p>
+                    <h2 id="exercise-library-title">Exercise library</h2>
+                    <p>Browse your exercises and view their equipment, working weight, and movement reference.</p>
+                </div>
+                <button onClick={handleExport}>Export</button>
             </header>
             <div className="exercise-library-layout">
-                <aside className="exercise-directory" aria-label="Exercises">
-                    <div className="exercise-directory-heading">
-                        <h3>All exercises</h3>
-                        <span>{sortedExercises.length}</span>
-                    </div>
-                    <ul>
-                        {sortedExercises.map((exercise) => (
-                            <li key={exercise.name}>
-                                <button
-                                    type="button"
-                                    className={`exercise-directory-item${exercise.name === selectedExerciseName ? ' selected' : ''}`}
-                                    aria-current={exercise.name === selectedExerciseName ? 'true' : undefined}
-                                    onClick={() => setSelectedExerciseName(exercise.name)}
-                                >
-                                    <span>{exercise.name}</span>
-                                    <span className="exercise-list-chevron" aria-hidden="true">›</span>
-                                </button>
-                            </li>
-                        ))}
-                    </ul>
-                </aside>
+                <ObjectDirectoryList
+                    objects={sortedExercises}
+                    selectedObjectName={selectedExerciseName}
+                    title="All exercises"
+                    ariaLabel="Exercises"
+                    onSelect={setSelectedExerciseName}
+                />
 
                 {selectedExercise && (
                     <article className="exercise-detail" aria-live="polite">
