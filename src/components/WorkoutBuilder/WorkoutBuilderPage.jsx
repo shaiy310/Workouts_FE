@@ -25,7 +25,7 @@ function WorkoutBuilderPage({ workouts, exercises, addWorkout }) {
   }
 
   return (
-    <main className="workout-builder-page">
+    <section className="workout-builder-page">
       <PageHeader
         title="Workout Library"
         eyebrow="Workout Builder"
@@ -218,7 +218,7 @@ function WorkoutBuilderPage({ workouts, exercises, addWorkout }) {
           </div>
         </aside>
       </section>
-    </main>
+    </section>
   );
 }
 

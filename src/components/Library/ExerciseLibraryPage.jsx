@@ -41,7 +41,7 @@ function ExerciseLibraryPage({ exercises, weights, events }) {
     }
 
     return (
-        <section className="exercise-library" aria-labelledby="exercise-library-title">
+        <section className="exercise-library">
             <PageHeader
                 title="Exercise library"
                 eyebrow="MOVEMENT REFERENCE"

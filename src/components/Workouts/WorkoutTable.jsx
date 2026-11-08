@@ -13,10 +13,8 @@ function WorkoutTable({ exercises, day, workout, weights, onWeightChange }) {
     const sets = workout.sets || [];
 
     if (sets.length === 0) {
-        return (
-        // <tr>
+        return (!workout.notes &&
             <span colSpan="5">No exercises scheduled for today. Enjoy your rest!</span>
-        // </tr>
         );
     }
 
@@ -34,7 +32,7 @@ function WorkoutTable({ exercises, day, workout, weights, onWeightChange }) {
             <tbody>
                 {sets.map((setGroup, index) => {
                     const rowColor = `hsl(${index * 25}, ${setGroup.exercises.length * 50}%, 80%)`;
-                    let groupRows = setGroup.exercises.map(({name:exerciseName, reps}, i) => {
+                    let groupRows = setGroup.exercises.map(({ name: exerciseName, reps }, i) => {
                         const equipment = exercises[exerciseName]?.equipment || inferEquipment(exerciseName);
                         return (
                             <tr
@@ -48,7 +46,7 @@ function WorkoutTable({ exercises, day, workout, weights, onWeightChange }) {
                                 <ExerciseNameCell exercises={exercises} exerciseName={exerciseName} />
                                 <td>{equipment}</td>
                                 <td>Sets: {setGroup.num}, Reps: {reps}</td>
-                                
+
                                 <ExerciseWeightCell
                                     exerciseName={exerciseName}
                                     equipment={equipment}
@@ -61,7 +59,7 @@ function WorkoutTable({ exercises, day, workout, weights, onWeightChange }) {
                         );
                     });
                     return [...groupRows,
-                        <EndSetRow key={`${day}-${index}-rest`} setNumTotal={setGroup.num} restTime={setGroup.rest} rowColor={rowColor} />
+                    <EndSetRow key={`${day}-${index}-rest`} setNumTotal={setGroup.num} restTime={setGroup.rest} rowColor={rowColor} />
                     ];
                 })}
             </tbody>

@@ -5,6 +5,7 @@ import './WorkoutPage.css';
 import WorkoutTable from './WorkoutTable';
 
 import { getLocalDateKey } from '/src/utils';
+import PageHeader from '../Shared/PageHeader';
 
 
 function WorkoutPage({ exercises, workouts, workoutByday, weights, events, onWorkoutComplete, onWeightChange }) {
@@ -17,8 +18,13 @@ function WorkoutPage({ exercises, workouts, workoutByday, weights, events, onWor
     );
 
     return (
-        <div className="workoutDetails">
-            <h2>Workout Details</h2>
+        <section className="workout-page">
+            <PageHeader
+                title="Workout Details"
+                eyebrow="TRAINING PLAN"
+                description="Review the selected workout day, track your weights, and log completion once you're done."
+            />
+
             <div className="tabs" role="tablist" aria-label="Workout days">
                 {[1, 2, 3, 4, 5].map((dayTab) => {
                     return (
@@ -35,7 +41,7 @@ function WorkoutPage({ exercises, workouts, workoutByday, weights, events, onWor
                 })}
             </div>
 
-            <h4>Day {day}: {workout.title}</h4>
+            <h4>Day {day}: {workout.name}</h4>
             <div className="meta-info">
                 <strong>Duration:</strong> ~{workout.duration} Minutes &nbsp;|&nbsp; <strong>Emphasis:</strong> {workout.emphasis}
             </div>
@@ -60,7 +66,7 @@ function WorkoutPage({ exercises, workouts, workoutByday, weights, events, onWor
                 </button>
             )}
 
-        </div>
+        </section>
     );
 }
 

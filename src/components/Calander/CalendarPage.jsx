@@ -1,6 +1,7 @@
 import React from 'react';
 import { getLocalDateKey } from '/src/utils';
 import './CalendarPage.css';
+import PageHeader from '../Shared/PageHeader';
 
 const weekdayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
@@ -48,21 +49,19 @@ function CalendarPage({ events }) {
 
     return (
         <section className="calendar-page" aria-labelledby="calendar-title">
-            <div className="calendar-heading">
-                <div>
-                    <p className="calendar-eyebrow">YOUR TRAINING HISTORY</p>
-                    <h2 id="calendar-title">Activity calendar</h2>
-                    <p className="calendar-description">Completed workouts and exercise weight changes, all in one place.</p>
-                </div>
-                <div className="calendar-month-controls" aria-label="Calendar month controls">
-                    <button type="button" onClick={() => moveMonth(-1)} aria-label="Previous month">‹</button>
-                    <strong aria-live="polite">{monthLabel}</strong>
-                    <button type="button" onClick={() => moveMonth(1)} aria-label="Next month">›</button>
-                </div>
-            </div>
+            <PageHeader
+                title="Activity calendar"
+                eyebrow="YOUR TRAINING HISTORY"
+                description="Completed workouts and exercise weight changes, all in one place."
+            />
 
             <div className="calendar-layout">
                 <div className="calendar-card">
+                    <div className="calendar-month-controls" aria-label="Calendar month controls">
+                        <button type="button" onClick={() => moveMonth(-1)} aria-label="Previous month">‹</button>
+                        <strong aria-live="polite">{monthLabel}</strong>
+                        <button type="button" onClick={() => moveMonth(1)} aria-label="Next month">›</button>
+                    </div>
                     <div className="calendar-grid calendar-weekdays" aria-hidden="true">
                         {weekdayLabels.map((label) => <div key={label}>{label}</div>)}
                     </div>

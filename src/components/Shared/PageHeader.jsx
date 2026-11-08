@@ -11,7 +11,7 @@ function PageHeader({ title, eyebrow, description, buttons }) {
                 <p>{description}</p>
             </div>
 
-            <div className="page-header__actions">
+            {buttons && <div className="page-header__actions">
                 {buttons.map((btn) => {
                     return <button
                         type="button"
@@ -22,6 +22,7 @@ function PageHeader({ title, eyebrow, description, buttons }) {
                     </button>
                 })}
             </div>
+            }
         </header>
     );
 }
